@@ -24,8 +24,10 @@ pipeline {
       }
     }
     stage('ci-Test') {
-      sh 'npm run ci-test'
-      step([$class: "TapPublisher", testResults: "*.tap"])
+      steps {
+        sh 'npm run ci-test'
+        step([$class: "TapPublisher", testResults: "*.tap"])
+      }
     }
   }
 }
