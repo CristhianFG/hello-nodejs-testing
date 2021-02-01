@@ -26,7 +26,7 @@ pipeline {
     stage('ci-Test') {
       steps {
         sh 'npm run ci-test'
-        step([$class: "TapPublisher", testResults: "*.tap"])
+        step([$class: "TapPublisher", testResults: "test.tap"])
       }
     }
   }
