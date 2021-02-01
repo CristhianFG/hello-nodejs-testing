@@ -14,7 +14,6 @@ pipeline {
       steps {
         sh 'npm run test'
         sh 'npm run ci-test'
-        sh 'cat coverage/clover.xml'
       }
     }
   }
