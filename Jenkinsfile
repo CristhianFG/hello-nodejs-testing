@@ -20,6 +20,7 @@ Jenkins.instance.getDescriptor(NodeJSInstallation).with {
     }  as NodeJSInstallation[]
 }
 pipeline {
+  agent any
   stages {
     stage('Dependencies') {
       steps {
