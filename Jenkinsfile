@@ -2,7 +2,7 @@
 pipeline {
   agent any
   tools {
-    nodejs "node"
+    nodejs "v14.15.4"
   }
   stages {
     stage('Dependencies') {
