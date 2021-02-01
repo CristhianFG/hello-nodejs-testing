@@ -19,17 +19,18 @@ Jenkins.instance.getDescriptor(NodeJSInstallation).with {
         ])
     }  as NodeJSInstallation[]
 }
-
- stages {
-        stage('Dependencies') {
-            steps {
-                sh 'yarn'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'yarn run test'
-                sh 'yarn run ci-test'
-            }
-        }
+pipeline {
+  stages {
+    stage('Dependencies') {
+      steps {
+        sh 'yarn'
+      }
     }
+    stage('Test') {
+      steps {
+        sh 'yarn run test'
+        sh 'yarn run ci-test'
+      }
+    }
+  }
+}
