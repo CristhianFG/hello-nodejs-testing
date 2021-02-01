@@ -13,7 +13,6 @@ pipeline {
     stage('Test') {
       steps {
         sh 'npm run test'
-        sh 'npm run ci-test'
         step([
           $class: 'CloverPublisher',
           cloverReportDir: 'target/site',
@@ -23,6 +22,10 @@ pipeline {
           failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]     // optional, default is none
         ])
       }
+    }
+    stage('ci-Test') {
+      sh 'npm run ci-test'
+      step([$class: "TapPublisher", testResults: "*.tap"])
     }
   }
 }
